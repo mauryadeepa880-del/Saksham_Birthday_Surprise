@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffb7d5">
+  <title>A Little Surprise for Saksham 💗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<audio id="birthdaySong" src="assets/song.mp3" loop></audio>
+<script>
+document.addEventListener("click", function startSong() {
+  const song = document.getElementById("birthdaySong");
+  if (song) {
+    song.play().catch(() => {});
+    document.removeEventListener("click", startSong);
+  }
+}, { once: true });
+</script>
+  <div class="sparkle-layer" aria-hidden="true"></div>
+  <main class="scene">
+    <div class="curtain curtain-left"></div>
+    <div class="curtain curtain-right"></div>
+
+    <section id="countdown-screen" class="screen active">
+      <div class="eyebrow">A tiny surprise is waiting…</div>
+      <div class="big-heart" aria-hidden="true">♡</div>
+      <h1>Something special<br><span>for Saksham</span></h1>
+      <p class="subtitle">A little countdown to a very special day.</p>
+      <div id="countdown" class="countdown" aria-live="polite">
+        <div><strong id="days">00</strong><small>Days</small></div>
+        <div><strong id="hours">00</strong><small>Hours</small></div>
+        <div><strong id="minutes">00</strong><small>Minutes</small></div>
+        <div><strong id="seconds">00</strong><small>Seconds</small></div>
+      </div>
+      <button id="continue-btn" class="primary-btn">Open your surprise ✨</button>
+      <p class="tiny-note">Made with friendship, memories & a little magic.</p>
+    </section>
+
+    <section id="pin-screen" class="screen">
+      <div class="eyebrow">Only the birthday boy knows…</div>
+      <div class="lock-icon">🔐</div>
+      <h1>A little <span>secret</span></h1>
+      <p class="subtitle">Enter your birthday in DDMMYYYY format.</p>
+      <form id="pin-form">
+        <input id="pin-input" type="password" inputmode="numeric" maxlength="8" placeholder="DDMMYYYY" autocomplete="off" aria-label="Birthday PIN">
+        <button class="primary-btn" type="submit">Unlock the gifts 💝</button>
+      </form>
+      <p id="pin-error" class="error" aria-live="polite"></p>
+      <button class="text-btn back-btn" data-back="countdown-screen">← Back</button>
+    </section>
+
+    <section id="gifts-screen" class="screen">
+      <div class="eyebrow">Happy Birthday, Saksham! 🎂</div>
+      <h1>Pick a <span>heart</span></h1>
+      <p class="subtitle">Three little surprises, made just for you.</p>
+      <div class="gift-grid">
+        <button class="gift-card" data-gift="message">
+          <span class="gift-heart">♡</span><strong>Words from the heart</strong><small>Tap to open</small>
+        </button>
+        <button class="gift-card" data-gift="photos">
+          <span class="gift-heart">♡</span><strong>Our memory album</strong><small>Tap to open</small>
+        </button>
+        <button class="gift-card" data-gift="cake">
+          <span class="gift-heart">♡</span><strong>A cake for you</strong><small>Tap to open</small>
+        </button>
+      </div>
+      <p class="tiny-note">Choose any heart. You can come back and open the others too.</p>
+    </section><
+
+    <section id="reveal-screen" class="screen">
+      <button id="close-reveal" class="close-btn" aria-label="Close gift">×</button>
+      <div id="reveal-content"></div>
+      <button class="primary-btn" id="back-to-gifts">Back to the gifts 💗</button>
+    </section>
+    <footer>Made especially for Saksham · with brotherhood 💗</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
